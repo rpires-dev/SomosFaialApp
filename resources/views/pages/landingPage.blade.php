@@ -1,6 +1,6 @@
 @extends('layouts.index')
-@section('title', 'SOMOS FAIAL')
-@section('description', "" )
+@section('title', setting('site.title'))
+@section('description', setting('site.description'))
 @section('keywords', "")
 @section('container')
 <section class="section first-section">

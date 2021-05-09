@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Jenssegers\Date\Date;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Post;
 
 class LandingPageController extends Controller
@@ -18,12 +19,15 @@ class LandingPageController extends Controller
 
         $recentNews = Post::where('featured', 0)->orderBy('id', 'DESC')->paginate(10);
 
+
+
         return view('pages.landingPage')->with(
             [
                 'featuredPost1' => $featuredPost1,
                 'featuredPost2' => $featuredPost2,
                 'featuredPost3' => $featuredPost3,
                 'recentNews' => $recentNews,
+
 
             ]
         );

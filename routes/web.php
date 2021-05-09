@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::get('/autores/{authorId}/{authorName}', [BlogController::class, 'ByUser']
 Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
 
 Route::get('/sobre', [PagesController::class, 'about']);
+
+Route::get('/contato', [ContactController::class, 'index']);
+Route::post('/contact-form', [ContactController::class, 'saveContact']);
+
 
 
 Route::group(['prefix' => 'admin'], function () {

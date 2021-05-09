@@ -22,415 +22,50 @@
                                 <div class="container">
                                     <div class="mega-menu-content clearfix">
                                         <div class="tab">
-                                            <button class="tablinks active"
-                                                onclick="openCategory(event, 'cat01')">Locais</button>
-                                            <button class="tablinks"
-                                                onclick="openCategory(event, 'cat02')">Triangulo</button>
-                                            <button class="tablinks"
-                                                onclick="openCategory(event, 'cat03')">Regionais</button>
-                                            <button class="tablinks" onclick="openCategory(event, 'cat04')">Assembleia
-                                                Regional</button>
-                                            <button class="tablinks" onclick="openCategory(event, 'cat05')">SOMOS
-                                                FAIAL</button>
+                                            <?php $counter= 1; ?>
+                                            @foreach ($headerItems as $item)
+                                            <button class="tablinks {{$counter ==1 ? 'active' : '' }}"
+                                                onclick="openCategory(event, 'cat0{{$counter}}')">{{$item->name}}</button>
+
+                                            <?php $counter++; ?>
+                                            @endforeach
                                         </div>
 
                                         <div class="tab-details clearfix">
-                                            <div id="cat01" class="tabcontent active">
+                                            <?php $counter= 1; ?>
+                                            @foreach ($headerItems as $item)
+                                            <div id="cat0{{$counter}}"
+                                                class="tabcontent {{$counter ==1 ? 'active' : '' }}">
                                                 <div class="row">
+
+                                                    @foreach ($item->posts as $post)
                                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <div class="blog-box">
                                                             <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="images/capas/imagem2.jpeg" alt=""
+                                                                <a href="/p/{{$post->slug}}" title="">
+                                                                    <img src="{{Voyager::image($post->image)}}" alt=""
                                                                         class="img-fluid"
                                                                         style="width:188px;height:108px;object-fit: contain;">
                                                                     <div class="hovereffect">
                                                                     </div><!-- end hover -->
-                                                                    <span class="menucat">Locais</span>
+                                                                    <span
+                                                                        class="menucat">{{$post->category->name}}</span>
                                                                 </a>
                                                             </div><!-- end media -->
                                                             <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet.</a></h4>
+                                                                <h4><a href="/p/{{$post->slug}}"
+                                                                        title="">{{$post->title}}</a></h4>
                                                             </div><!-- end meta -->
                                                         </div><!-- end blog-box -->
                                                     </div>
+                                                    @endforeach
 
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="images/capas/imagem8.jpeg" alt=""
-                                                                        class="img-fluid"
-                                                                        style="width:188px;height:108px;object-fit: contain;">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Locais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="images/capas/imagem10.jpeg" alt=""
-                                                                        class="img-fluid"
-                                                                        style="width:188px;height:108px;object-fit: contain;">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Locais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="images/capas/imagem1.jpeg" alt=""
-                                                                        class="img-fluid"
-                                                                        style="width:188px;height:108px;object-fit: contain;">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Locais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
                                                 </div><!-- end row -->
                                             </div>
-                                            <div id="cat02" class="tabcontent">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="images/capas/imagem1.jpeg" alt=""
-                                                                        class="img-fluid"
-                                                                        style="width:188px;height:108px;object-fit: contain;">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Triangulo</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
+                                            <?php $counter++; ?>
+                                            @endforeach
 
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_06.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Triangulo</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
 
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_07.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Triangulo</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_08.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Triangulo</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-                                                </div><!-- end row -->
-                                            </div>
-                                            <div id="cat03" class="tabcontent">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_09.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Regionais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">I
-                                                                        Lorem ipsum dolor sit amet
-                                                                        consectetur.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_10.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Regionais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_11.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Regionais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">I
-                                                                        Lorem ipsum dolor sit amet
-                                                                        consectetur.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_12.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Regionais</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-                                                </div><!-- end row -->
-                                            </div>
-                                            <div id="cat04" class="tabcontent">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_13.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Assembleia
-                                                                        Regional</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_14.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Assembleia
-                                                                        Regional</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_15.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Assembleia
-                                                                        Regional</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_16.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">Assembleia
-                                                                        Regional</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit.</a></h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-                                                </div><!-- end row -->
-                                            </div>
-                                            <div id="cat05" class="tabcontent">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_17.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">SOMOS FAIAL</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_18.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">SOMOS FAIAL</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">TLorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_19.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">SOMOS FAIAL</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">Lorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                                        <div class="blog-box">
-                                                            <div class="post-media">
-                                                                <a href="tech-single.html" title="">
-                                                                    <img src="upload/tech_menu_20.jpg" alt=""
-                                                                        class="img-fluid">
-                                                                    <div class="hovereffect">
-                                                                    </div><!-- end hover -->
-                                                                    <span class="menucat">SOMOS FAIAL</span>
-                                                                </a>
-                                                            </div><!-- end media -->
-                                                            <div class="blog-meta">
-                                                                <h4><a href="tech-single.html" title="">TLorem
-                                                                        ipsum dolor sit amet consectetur.</a>
-                                                                </h4>
-                                                            </div><!-- end meta -->
-                                                        </div><!-- end blog-box -->
-                                                    </div>
-                                                </div><!-- end row -->
-                                            </div>
                                         </div><!-- end tab-details -->
                                     </div><!-- end mega-menu-content -->
                                 </div>
@@ -438,7 +73,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tech-category-02.html">Sobre Nós</a>
+                        <a class="nav-link" href="/sobre">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/c/{{$post->category->slug}}">Projetos</a>
