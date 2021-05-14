@@ -54,7 +54,7 @@
                                         <small><a href="/autores/{{$post->authorId->id}}/{{$post->authorId->name}}"
                                                 title="">by {{$post->authorId->name}}</a></small>
                                         <small><a href="/p/{{$post->slug}}" title=""><i class="fa fa-eye"></i>
-                                                2887</a></small>
+                                                {{$post->views}}</a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
                             </div><!-- end col -->

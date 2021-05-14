@@ -1,28 +1,33 @@
 <div class="custombox authorbox clearfix">
-    <h4 class="small-title">Mais sobre</h4>
+    <h4 class="small-title">Sobre o Autor</h4>
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-            <img src="/upload/author.jpg" alt="" class="img-fluid rounded-circle">
+            <img src="{{Voyager::image($author->avatar)}}" alt="" class="img-fluid rounded-circle">
         </div><!-- end col -->
 
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-            <h4><a href="#">Jessica</a></h4>
-            <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur
-                adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis
-                tempus elit quis risus congue feugiat. Thanks for stop Tech Blog!</p>
+            <h4><a href="#">{{$author->name}}</a></h4>
+            <p>{!!$author->bio !!}</p>
 
             <div class="topsocial">
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
+                @if (!empty($author->facebook))
+                <a href="{{$author->facebook}}" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
                         class="fa fa-facebook"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i
-                        class="fa fa-youtube"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
-                        class="fa fa-pinterest"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
+                @endif
+
+                @if (!empty($author->twitter))
+                <a href="{{$author->twitter}}" data-toggle="tooltip" data-placement="bottom" title="twitter"><i
                         class="fa fa-twitter"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
-                        class="fa fa-instagram"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
+                @endif
+
+                @if (!empty($author->linkedin))
+                <a href="{{$author->linkedin}}" data-toggle="tooltip" data-placement="bottom" title="linkedin"><i
+                        class="fa fa-linkedin"></i></a>
+                @endif
+
+
+
+
             </div><!-- end social -->
 
         </div><!-- end col -->

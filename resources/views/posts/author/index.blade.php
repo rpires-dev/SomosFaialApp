@@ -81,7 +81,7 @@
                                         {{$post->authorId->name}}
                                         @endif</a></small>
                                 <small><a href="/p/{{$post->slug}}" title=""><i class="fa fa-eye"></i>
-                                        1114</a></small>
+                                        {{$post->views}}</a></small>
                             </div>
                         </div>
                         <hr class="invis">

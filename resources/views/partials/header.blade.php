@@ -76,16 +76,16 @@
                         <a class="nav-link" href="/sobre">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/c/{{$post->category->slug}}">Projetos</a>
+                        <a class="nav-link" href="">Projetos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/c/{{$post->category->slug}}">Calendário de Eventos</a>
+                        <a class="nav-link" href="">Calendário de Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tech-category-03.html">Sondagens</a>
+                        <a class="nav-link" href="">Sondagens</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tech-contact.html">Contacto</a>
+                        <a class="nav-link" href="/contact">Contacto</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-2">

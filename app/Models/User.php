@@ -47,4 +47,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsToMany(Post::class, 'id', 'author_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

@@ -1,73 +1,55 @@
 <div class="custombox clearfix">
-    <h4 class="small-title">3 Comments</h4>
+    <h4 class="small-title">Deixar um comentário</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            @if (Auth::check())
+            <form class="form-wrapper" action="/comments" method="POST">
+                @csrf
+                <textarea class="form-control" name="body" placeholder="Your comment"></textarea>
+                <input type="hidden" name="post_id" value="{{$post->id}}">
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+            @endif
+        </div>
+    </div>
+</div>
+
+<hr class="invis1">
+<div class="custombox clearfix">
+    <h4 class="small-title"><span>Comentários({{$post->comments->count()}})
+        </span></h4>
+
     <div class="row">
         <div class="col-lg-12">
             <div class="comments-list">
+                @forelse ($post->comments as $comment)
+                <div id="myDiv"> </div>
                 <div class="media">
                     <a class="media-left" href="#">
                         <img src="/upload/author.jpg" alt="" class="rounded-circle">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading user_name">Amanda Martines <small>5 days
-                                ago</small></h4>
-                        <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch
-                            freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit
-                            kale chips proident chillwave deep v laborum. Aliquip veniam delectus,
-                            Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone
-                            Kickstarter, drinking vinegar jean.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Reply</a>
+                        <h4 class="media-heading user_name">{{ $comment->user->name }}
+                            <small>{{Date::parse($comment->created_at)->diffForHumans()}}</small></h4>
+                        <p>{{ $comment->body }}</p>
+                        {{-- <a href="#" class="btn btn-primary btn-sm">Reply</a> --}}
                     </div>
                 </div>
-                <div class="media">
-                    <a class="media-left" href="#">
-                        <img src="/upload/author_01.jpg" alt="" class="rounded-circle">
-                    </a>
-                    <div class="media-body">
-
-                        <h4 class="media-heading user_name">Baltej Singh <small>5 days ago</small>
-                        </h4>
-
-                        <p>Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo
-                            biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko
-                            tempor duis single-origin coffee. Banksy, elit small.</p>
-
-                        <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                    </div>
-                </div>
-                <div class="media last-child">
-                    <a class="media-left" href="#">
-                        <img src="/upload/author_02.jpg" alt="" class="rounded-circle">
-                    </a>
-                    <div class="media-body">
-
-                        <h4 class="media-heading user_name">Marie Johnson <small>5 days ago</small>
-                        </h4>
-                        <p>Kickstarter seitan retro. Drinking vinegar stumptown yr pop-up artisan
-                            sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie
-                            consequat flexitarian four loko tempor duis single-origin coffee.
-                            Banksy, elit small.</p>
-
-                        <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                    </div>
-                </div>
+                @empty
+                <p>Este post ainda não tem comentários</p>
+                @endforelse
             </div>
-        </div><!-- end col -->
-    </div><!-- end row -->
-</div><!-- end custom-box -->
-
-<hr class="invis1">
-
-<div class="custombox clearfix">
-    <h4 class="small-title">Leave a Reply</h4>
-    <div class="row">
-        <div class="col-lg-12">
-            <form class="form-wrapper">
-                <input type="text" class="form-control" placeholder="Your name">
-                <input type="text" class="form-control" placeholder="Email address">
-                <input type="text" class="form-control" placeholder="Website">
-                <textarea class="form-control" placeholder="Your comment"></textarea>
-                <button type="submit" class="btn btn-primary">Submit Comment</button>
-            </form>
         </div>
     </div>
 </div>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
+
+@if(session()->has('message'))
+<script type="text/javascript">
+    $(document).ready(function (i) {
+    $('html, body').animate({
+        scrollTop: $("#myDiv"+i).offset().top
+    }, 1000);
+});
+</script>
+@endif

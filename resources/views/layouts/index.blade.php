@@ -24,6 +24,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
 
+    @yield('extra_js')
 </body>
 
 </html>

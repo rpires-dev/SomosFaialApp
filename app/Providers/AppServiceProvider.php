@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         $cat_ids = \DB::table('posts')
             ->groupBy('category_id')
             ->orderBy(\DB::raw('count(category_id)'), 'DESC')
-            ->take(5)
+            ->take(4)
             ->pluck('category_id')->toArray();
 
         $ids_ordered = implode(',', $cat_ids);

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostView;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Request;
 use Jenssegers\Date\Date;
 use TCG\Voyager\Models\Category;
 use TCG\Voyager\Models\Post;
@@ -13,15 +14,24 @@ class BlogController extends Controller
     public function singlePost($slug)
     {
         Date::setLocale('pt');
+        $view = [];
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $prevPost = Post::where('id', '<', $post->id)->orderBy('id', 'desc')->first();
+        $nextPost = Post::where('id', '>', $post->id)->orderBy('id')->first();
+        $relatedPosts = Post::where([['id', '<>', $post->id], ['category_id', '=', $post->category_id]])->take(2)->get();
+        $author = User::where('id', $post->author_id)->first();
 
-        $post = Post::where('slug', $slug)->first();
+        $view = ['author' => $author, 'post' => $post, 'relatedPosts' => $relatedPosts, 'prevPost' => $prevPost, 'nextPost' => $nextPost];
 
+        // If post was seen by user show post else add log
+        if ($post->showPost()) {
+            return view('posts.show')->with($view);
+        } else {
 
-        return view('posts.show')->with(
-            [
-                'post' => $post
-            ]
-        );
+            PostView::createViewLog($post);
+            $post->increment('views', 1);
+            return view('posts.show')->with($view);
+        }
     }
 
     public function ByUser($authorId, $authorName)

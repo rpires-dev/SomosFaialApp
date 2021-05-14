@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +27,16 @@ Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
 
 Route::get('/sobre', [PagesController::class, 'about']);
 
-Route::get('/contato', [ContactController::class, 'index']);
-Route::post('/contact-form', [ContactController::class, 'saveContact']);
 
+Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
+Route::post('/projetos', [ProjectsController::class, 'index'])->name('projetos.index');
+
+Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
+
+Route::post('users/{id}', function ($id) {
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
