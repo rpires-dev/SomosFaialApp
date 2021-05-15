@@ -34,6 +34,9 @@ Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name
 Route::post('/projetos', [ProjectsController::class, 'index'])->name('projetos.index');
 
 Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
+Route::patch('/editComment/{id}', [CommentsController::class, 'update'])->name('comment.update');
+Route::delete('removeComment/{id}', [CommentsController::class, 'delete'])->name('comment.delete');
+
 
 Route::post('users/{id}', function ($id) {
 });

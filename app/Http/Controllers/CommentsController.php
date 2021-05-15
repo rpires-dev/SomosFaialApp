@@ -28,6 +28,38 @@ class CommentsController extends Controller
             'user_id' => Auth::id(),
             'post_id' => $post->id
         ]);
-        return back()->with('message', 'A sua mensagem foi enviada, voltaremos a entrar em contato consigo em breve');
+        return back()->with('message', '');
+    }
+
+    public function update($id)
+    {
+
+        //validate as usual
+        request()->validate([
+            'body' => 'required|max:1000'
+
+        ]);
+
+        //Now instead of just creating a new one we are going to update the one we want
+        Comment::find($id)->update([
+            'body' => request('body'),
+            'user_id' => Auth::id(),
+            'post_id' => request('post_id')
+        ]);
+
+        //some fancy feedback message
+
+        return back()->with('message', '');
+    }
+
+
+
+    public function delete($id)
+    {
+        $comment = Comment::find($id);
+        if ($comment) {
+            $comment->delete();
+        }
+        return back()->with('message', '');
     }
 }

@@ -90,13 +90,13 @@
                 </ul>
                 <ul class="navbar-nav mr-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
+                        <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-android"></i></a>
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-apple"></i></a>
+                        <a class="nav-link" href="#"><i class="fa fa-book"></i></a>
                     </li>
                 </ul>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PostView;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Request;
 use Jenssegers\Date\Date;
 use TCG\Voyager\Models\Category;
@@ -13,6 +14,7 @@ class BlogController extends Controller
 {
     public function singlePost($slug)
     {
+
         Date::setLocale('pt');
         $view = [];
         $post = Post::where('slug', $slug)->firstOrFail();
