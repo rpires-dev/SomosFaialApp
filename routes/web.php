@@ -21,6 +21,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/sondagens', function () {
+    return view('/polls.index');
+});
+
+Route::get('/sondagens/1', function () {
+    return view('/polls.show');
+});
 Route::get('/p/{slug}', [BlogController::class, 'singlePost']);
 Route::get('/autores/{authorId}/{authorName}', [BlogController::class, 'ByUser']);
 Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
