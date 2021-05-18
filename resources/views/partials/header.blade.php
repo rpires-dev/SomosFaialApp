@@ -82,7 +82,7 @@
                         <a class="nav-link" href="">Calendário de Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Sondagens</a>
+                        <a class="nav-link" href="/sondagens">Sondagens</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contacto</a>

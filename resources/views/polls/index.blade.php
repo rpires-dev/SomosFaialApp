@@ -33,10 +33,11 @@
                 <div class="page-wrapper">
                     <div class="blog-custom-build">
 
+                        @foreach ($polls as $poll)
                         <div class="blog-box">
                             <div class="post-media">
-                                <a href="tech-single.html" title="">
-                                    <img src="upload/tech_menu_20.jpg" alt="" class="img-fluid">
+                                <a href="/sondagens/{{$poll->slug}}" title="">
+                                    <img src="/upload/tech_menu_20.jpg" alt="" class="img-fluid">
                                     <div class="hovereffect">
                                         <span class="videohover"></span>
                                     </div>
@@ -55,13 +56,12 @@
                                                     class="fa fa-google-plus"></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
-                                <h4><a href="tech-single.html" title="">The golden rules you need to know for a positive
-                                        life</a></h4>
+                                <h4><a href="/sondagens/{{$poll->slug}}" title="">{{$poll->title}}</a></h4>
                                 {{-- <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
                                     pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat
                                     elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p> --}}
                                 <small><a href="tech-category.html" title="">Videos</a></small>
-                                <small><a href="tech-single.html" title="">18 July, 2017</a></small>
+                                <small><a href="/sondagens/{{$poll->slug}}" title="">18 July, 2017</a></small>
                                 {{-- <small><a href="tech-author.html" title="">by Amanda</a></small> --}}
                                 <small><a href="#" title=""><i class="fas fa-vote-yea"></i>
                                         1114</a></small>
@@ -69,6 +69,8 @@
                         </div> <!-- end blog-box -->
 
                         <hr class="invis">
+                        @endforeach
+
 
 
                     </div><!-- end blog-custom-build -->

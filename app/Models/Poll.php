@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Poll extends Model
 {
     use HasFactory;
+    // fields can be filled
+    protected $fillable = [
+        'title', 'body', 'slug', 'totalVotes', 'category_id',
+        'valid_until', 'schedulle', 'publish'
+    ];
 
     public function topics()
     {
@@ -19,9 +24,9 @@ class Poll extends Model
         return $this->belongsTo(Voyager::modelClass('Category'));
     }
 
-    public function postView()
+    public function pollView()
     {
-        return $this->hasMany(PostView::class);
+        return $this->hasMany(PollView::class);
     }
 
     public function showPoll()

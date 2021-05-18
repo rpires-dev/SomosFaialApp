@@ -82,7 +82,7 @@
 <style>
     .bar-chart {
         background: #fff;
-        height: 4rem;
+        height: 5rem;
         margin-bottom: 4rem;
     }
 
@@ -100,7 +100,7 @@
         top: 0;
         right: 0;
         content: " ";
-        width: 1rem;
+        width: 0rem;
         height: 100%;
         background: rgba(0, 0, 0, 0.1);
     }
@@ -109,17 +109,29 @@
         transition: width 1.3s;
     }
 
+    .bar-chart.secondary {
+        border-bottom: 2px dotted rgba(118, 114, 114, 0.289);
 
+    }
 
     .bar-chart.secondary .bar-chart--inner {
+
         background: #168de6;
     }
 </style>
 
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
 <section class="section single-wrapper">
+    @if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong></strong> {{ session()->get('message') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+
     <div class="container">
         <div class="row" style="justify-content: center">
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -150,20 +162,23 @@
 
                             </ul>
                         </div><!-- end post-sharing -->
-                        <h3>Top 10 phone applications and 2017 mobile design awards</h3>
+                        <h3>{{$poll->title}}</h3>
                     </div><!-- end title -->
                     <div class="single-post-media">
                         {{-- THE POLL GOES HERE --}}
-                        <div id="graphShow">
-                            <div class="bar-chart secondary" data-total="25" animated>
-                                <span class="bar-chart--text">42% Unique Title Here</span>
-                                <span class="bar-chart--inner" style="width:25%;"></span>
-                            </div>
+                        <div id="graphShow" style="display:{{$alreadyVote ? '' : 'none'}}">
+                            @foreach ($topics as $topic)
 
-                            <div class="bar-chart secondary" data-total="50" animated>
-                                <span class="bar-chart--text">42% Unique Title Here</span>
-                                <span class="bar-chart--inner" style="width:50%;"></span>
+                            <div class="bar-chart secondary" data-total="{{($topic->nr_votes/$totalVotes)*100}}"
+                                animated>
+                                <span class="bar-chart--text">
+                                    <strong> {{$topic->title}}</strong>({{($topic->nr_votes/$totalVotes)*100}}%)</span>
+                                <span class="bar-chart--inner"
+                                    style="width:{{($topic->nr_votes/$totalVotes)*100}}%;"></span>
                             </div>
+                            @endforeach
+
+
                         </div>
 
 
@@ -174,20 +189,18 @@
                     <div class="blog-content" id="BallotForm" style="text-align: -webkit-center;">
 
                         <div class="col-lg-7">
-                            <form class="form-wrapper">
+
+                            <form class="form-wrapper" id="votingForm" action="{{route('poll.vote')}}" method="POST"
+                                style="display:{{$alreadyVote ? 'none' : ''}}">
+                                @csrf
                                 <div style="margin: auto;width: fit-content;">
+                                    @foreach ($topics as $topic)
                                     <label class="radio">
-                                        <input type="radio" name="r" value="1" checked>
-                                        <span>Radio #1</span>
+                                        <input type="radio" name="r" value="{{$topic->id}}">
+                                        <span>{{$topic->title}}</span>
                                     </label>
-                                    <label class="radio">
-                                        <input type="radio" name="r" value="2">
-                                        <span>Radio #2</span>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="r" value="3">
-                                        <span>Radio #3</span>
-                                    </label>
+
+                                    @endforeach
                                 </div>
 
                                 <button type="submit" class="btn btn-primary" style="margin-top: 2em;">Votar <i

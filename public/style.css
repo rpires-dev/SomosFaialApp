@@ -1239,7 +1239,7 @@ hr.invis3 {
 }
 
 .hovereffect span::before {
-    width: 90px;
+    width: 170px;
     text-align: center;
     left: 0;
     right: 0;
@@ -1247,7 +1247,7 @@ hr.invis3 {
     margin: -2rem auto;
     visibility: hidden;
     position: absolute;
-    height: 90px;
+    height: 100px;
     display: block;
     content: url(images/hover.png);
     -webkit-transition: all .3s ease-in-out;

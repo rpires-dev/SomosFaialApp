@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PollController;
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,15 +20,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/sondagens', function () {
+//     return view('/polls.index');
+// });
+
+
 
 Route::get('/', [LandingPageController::class, 'index']);
-Route::get('/sondagens', function () {
-    return view('/polls.index');
-});
 
-Route::get('/sondagens/1', function () {
-    return view('/polls.show');
-});
+
+
+Route::get('/sondagens', [PollController::class, 'index']);
+Route::get('/sondagens/{slug}', [PollController::class, 'show']);
+Route::post('/sondagens', [PollController::class, 'vote'])->name('poll.vote');
+
+
+
+
+
 Route::get('/p/{slug}', [BlogController::class, 'singlePost']);
 Route::get('/autores/{authorId}/{authorName}', [BlogController::class, 'ByUser']);
 Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
