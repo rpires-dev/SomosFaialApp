@@ -29,34 +29,41 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index']);
 
 
-
+// POLLS
 Route::get('/sondagens', [PollController::class, 'index']);
 Route::get('/sondagens/{slug}', [PollController::class, 'show']);
 Route::post('/sondagens', [PollController::class, 'vote'])->name('poll.vote');
 
 
-
-
-
+// POSTS
 Route::get('/p/{slug}', [BlogController::class, 'singlePost']);
 Route::get('/autores/{authorId}/{authorName}', [BlogController::class, 'ByUser']);
 Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
 
+// PAGES
 Route::get('/sobre', [PagesController::class, 'about']);
 
-
+// CONTACT
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
+// PROJECTS
 Route::post('/projetos', [ProjectsController::class, 'index'])->name('projetos.index');
 
+
+// CALENDAR
+
+
+
+// COMMENTS
 Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
 Route::patch('/editComment/{id}', [CommentsController::class, 'update'])->name('comment.update');
 Route::delete('removeComment/{id}', [CommentsController::class, 'delete'])->name('comment.delete');
 
 
-Route::post('users/{id}', function ($id) {
-});
+#TODO IF is not valable delete
+// Route::post('users/{id}', function ($id) {
+// });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

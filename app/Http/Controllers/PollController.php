@@ -34,8 +34,11 @@ class PollController extends Controller
         $topics = Topic::where('poll_id', $poll->id)->get();
         $prevPoll = Poll::where('id', '<', $poll->id)->orderBy('id', 'desc')->first();
         $nextPoll = Poll::where('id', '>', $poll->id)->orderBy('id')->first();
+        $totalVotes = $poll->totalVotes;
 
-
+        if ($totalVotes == 0) {
+            $totalVotes = 1;
+        }
 
         $alreadyVote = false;
         if ($poll->showPoll()) {
@@ -43,10 +46,12 @@ class PollController extends Controller
             $alreadyVote = true;
         }
         return view('polls.show')->with([
-            'totalVotes' => $poll->totalVotes,
+            'totalVotes' => $totalVotes,
             'poll' => $poll,
             'topics' => $topics,
             'alreadyVote' => $alreadyVote,
+            'prevPoll' => $prevPoll,
+            'nextPoll' => $nextPoll,
         ]);
     }
 
@@ -55,11 +60,12 @@ class PollController extends Controller
 
         $poll_id = Topic::where('id', $request->r)->pluck('poll_id');
 
-        // dd($poll_id);
+
 
         $poll = Poll::where('id', $poll_id)->firstOrFail();
+        $topic = Topic::where('id', $request->r)->firstOrFail();
 
-        // dd($poll);
+
         // If post was seen by user show post else add log
         if ($poll->showPoll()) {
             return back()->with('message', 'Não Possivel votar 2 x');
@@ -67,6 +73,7 @@ class PollController extends Controller
 
             PollView::createViewLog($poll);
             $poll->increment('totalVotes', 1);
+            $topic->increment('nr_votes', 1);
             return back()->with('message', 'Obrigado pelo voto');
         }
 

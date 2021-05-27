@@ -138,9 +138,9 @@
                 <div class="page-wrapper">
                     <div class="blog-title-area text-center">
                         <ol class="breadcrumb hidden-xs-down">
-                            <li class="breadcrumb-item"><a href="#">Página Principal</a></li>
+                            <li class="breadcrumb-item"><a href="/">Página Principal</a></li>
                             <li class="breadcrumb-item"><a href="#">Sondagens</a></li>
-                            <li class="breadcrumb-item active">Top 10 phone applications and 2017 mobile design awards
+                            <li class="breadcrumb-item active">{{$poll->title}}
                             </li>
                         </ol>
 
@@ -148,9 +148,10 @@
 
 
                         <div class="blog-meta big-meta">
-                            <small><a href="tech-single.html" title="">21 July, 2017</a></small>
+                            <small><a href="tech-single.html"
+                                    title="">{{Date::parse($poll->created_at)->diffForHumans()}}</a></small>
                             <small><a href="#" title=""><i class="fas fa-vote-yea"></i>
-                                    1114</a></small>
+                                    {{$totalVotes}}</a></small>
                         </div><!-- end meta -->
 
                         <div class="post-sharing">
@@ -210,39 +211,42 @@
                         </div>
                     </div><!-- end content -->
                     <hr class="invis1">
+
                     <div class="custombox prevnextpost clearfix">
                         <div class="row">
+                            @if (isset($prevPoll))
                             <div class="col-lg-6">
                                 <div class="blog-list-widget">
                                     <div class="list-group">
-                                        <a href="tech-single.html"
+                                        <a href="/sondagens/{{$prevPoll->slug}}"
                                             class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between text-right">
                                                 <img src="/upload/tech_menu_19.jpg" alt=""
                                                     class="img-fluid float-right">
-                                                <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                                <small>Prev Post</small>
+                                                <h5 class="mb-1">{{$prevPoll->title}}</h5>
+                                                <small>Sondagem Anterior</small>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             </div><!-- end col -->
-
+                            @endif
+                            @if (isset($nextPoll))
                             <div class="col-lg-6">
                                 <div class="blog-list-widget">
                                     <div class="list-group">
-                                        <a href="tech-single.html"
+                                        <a href="/sondagens/{{$nextPoll->slug}}"
                                             class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
                                                 <img src="/upload/tech_menu_20.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Let's make an introduction to the glorious world of
-                                                    history</h5>
-                                                <small>Next Post</small>
+                                                <h5 class="mb-1">{{$nextPoll->title}}</h5>
+                                                <small>Próxima Sondagem</small>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             </div><!-- end col -->
+                            @endif
                         </div><!-- end row -->
                     </div><!-- end author-box -->
                     <hr class="invis1">
