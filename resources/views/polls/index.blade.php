@@ -49,9 +49,9 @@
                                 <div class="post-sharing">
                                     <ul class="list-inline">
                                         <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i>
-                                                <span class="down-mobile">Share on Facebook</span></a></li>
+                                                <span class="down-mobile">Partilhar no Facebook</span></a></li>
                                         <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i>
-                                                <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                                <span class="down-mobile">Partilhar no Twitter</span></a></li>
                                         <li><a href="#" class="gp-button btn btn-primary"><i
                                                     class="fa fa-google-plus"></i></a></li>
                                     </ul>
@@ -61,7 +61,8 @@
                                     pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat
                                     elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p> --}}
                                 <small><a href="tech-category.html" title="">Videos</a></small>
-                                <small><a href="/sondagens/{{$poll->slug}}" title="">18 July, 2017</a></small>
+                                <small><a href="/sondagens/{{$poll->slug}}"
+                                        title="">{{Date::parse($poll->created_at)->diffForHumans()}}</a></small>
                                 {{-- <small><a href="tech-author.html" title="">by Amanda</a></small> --}}
                                 <small><a href="#" title=""><i class="fas fa-vote-yea"></i>
                                         1114</a></small>
@@ -82,12 +83,12 @@
                     <div class="col-md-12">
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                {{-- <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item">
                                     <a class="page-link" href="#">Next</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </nav>
                     </div><!-- end col -->

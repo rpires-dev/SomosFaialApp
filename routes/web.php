@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactUsFormController;
@@ -42,24 +43,31 @@ Route::get('/c/{slug}', [BlogController::class, 'ByCategory']);
 
 // PAGES
 Route::get('/sobre', [PagesController::class, 'about']);
+Route::get('/termos', [PagesController::class, 'termos']);
+Route::get('/privacidade', [PagesController::class, 'privacidade']);
+Route::get('/regulamento', [PagesController::class, 'regulamento']);
+Route::get('/documentos', [PagesController::class, 'documentos']);
+
 
 // CONTACT
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 // PROJECTS
-Route::post('/projetos', [ProjectsController::class, 'index'])->name('projetos.index');
+Route::get('/projetos', [ProjectsController::class, 'index'])->name('projetos.index');
+Route::get('/proj/{slug}', [ProjectsController::class, 'show']);
 
 
 // CALENDAR
-
-
+Route::get('/eventos', [CalendarController::class, 'index']);
+Route::get('/e/{slug}', [CalendarController::class, 'show']);
 
 // COMMENTS
 Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
 Route::patch('/editComment/{id}', [CommentsController::class, 'update'])->name('comment.update');
 Route::delete('removeComment/{id}', [CommentsController::class, 'delete'])->name('comment.delete');
 
+// USER PAGE
 
 #TODO IF is not valable delete
 // Route::post('users/{id}', function ($id) {

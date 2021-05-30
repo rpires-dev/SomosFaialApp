@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title', $post->title ." - SOMOS FAIAL")
+@section('title', $post->name ." - SOMOS FAIAL")
 @section('description', $post->excerpt )
 @section('keywords', $post->slug)
 @section('container')
@@ -13,8 +13,8 @@
                     <div class="blog-title-area text-center">
                         <ol class="breadcrumb hidden-xs-down">
                             <li class="breadcrumb-item"><a href="/">Página Principal</a></li>
-                            <li class="breadcrumb-item"><a href="#">Calendário & Eventos</a></li>
-                            <li class="breadcrumb-item active">{{$post->title}}
+                            <li class="breadcrumb-item"><a href="#">Projetos</a></li>
+                            <li class="breadcrumb-item active">{{$post->name}}
                             </li>
                         </ol>
 

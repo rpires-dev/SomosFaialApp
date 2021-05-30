@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Noticias</a>
+                            aria-haspopup="true" aria-expanded="false">Notícias</a>
                         <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
                             <li>
                                 <div class="container">
@@ -76,10 +76,10 @@
                         <a class="nav-link" href="/sobre">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Projetos</a>
+                        <a class="nav-link" href="/projetos">Projetos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Calendário de Eventos</a>
+                        <a class="nav-link" href="/eventos">Calendário de Eventos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/sondagens">Sondagens</a>
@@ -92,11 +92,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-user"></i></a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-book"></i></a>
+                        <a class="nav-link" href="/documentos"><i class="fa fa-book"></i></a>
                     </li>
                 </ul>
             </div>

@@ -10,14 +10,16 @@
         <div class="row">
 
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2><i class="fa fa-envelope-open-o bg-orange"></i> Contact us <small
-                        class="hidden-xs-down hidden-sm-down">Nulla felis eros, varius sit amet volutpat non. </small>
+                <h2><i class="fa fa-envelope-open-o bg-orange"></i> Contato <small
+                        class="hidden-xs-down hidden-sm-down">Deixe uma mensagem,uma reflexão, nós ouvimos e
+                        respondemos.
+                    </small>
                 </h2>
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Contact</li>
+                    <li class="breadcrumb-item"><a href="/">Página Principal</a></li>
+                    <li class="breadcrumb-item active">Contato</li>
                 </ol>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -46,7 +48,7 @@
                             <form action="" method="post" action="{{ route('contact.store') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Nome</label>
                                     <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}"
                                         name="name" id="name">
 
@@ -71,7 +73,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Phone</label>
+                                    <label>Telefone</label>
                                     <input type="text" class="form-control {{ $errors->has('phone') ? 'error' : '' }}"
                                         name="phone" id="phone">
 
@@ -83,7 +85,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Subject</label>
+                                    <label>Assunto</label>
                                     <input type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}"
                                         name="subject" id="subject">
 
@@ -95,7 +97,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Message</label>
+                                    <label>Mensagem</label>
                                     <textarea class="form-control {{ $errors->has('message') ? 'error' : '' }}"
                                         name="message" id="message" rows="4"></textarea>
 
@@ -106,7 +108,7 @@
                                     @endif
                                 </div>
 
-                                <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
+                                <input type="submit" name="send" value="Enviar" class="btn btn-dark btn-block">
                             </form>
                         </div>
                     </div>

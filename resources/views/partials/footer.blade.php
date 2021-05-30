@@ -11,19 +11,19 @@
                                     class="fa fa-facebook"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
                                     class="fa fa-twitter"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
-                                    class="fa fa-instagram"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i
+                                    class="fa fa-linkedin"></i></a>
+                            {{-- <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i
                                     class="fa fa-google-plus"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
-                                    class="fa fa-pinterest"></i></a>
+                                    class="fa fa-pinterest"></i></a> --}}
                         </div>
 
                         <hr class="invis">
 
                         <div class="newsletter-widget text-left">
                             <form class="form-inline">
-                                <input type="text" class="form-control" placeholder="Enter your email address">
+                                <input type="text" class="form-control" placeholder="Inserir o Email">
                                 <button type="submit" class="btn btn-primary">ENVIAR</button>
                             </form>
                         </div><!-- end newsletter -->
@@ -36,12 +36,12 @@
                     <h2 class="widget-title">SECÇÕES</h2>
                     <div class="link-widget">
                         <ul>
-                            <li><a href="#">Sobre Nós</a></li>
-                            <li><a href="#">Publicidade</a></li>
-                            <li><a href="#">Escreva Para Nós</a></li>
-                            <li><a href="#">Termos & Condições</a></li>
-                            <li><a href="#">Regulamento Interno</a></li>
-                            <li><a href="#">Politica de Privacidade</a></li>
+                            <li><a href="/sobre">Sobre Nós</a></li>
+                            {{-- <li><a href="#">Publicidade</a></li>
+                            <li><a href="#">Escreva Para Nós</a></li> --}}
+                            <li><a href="/termos">Termos & Condições</a></li>
+                            <li><a href="/regulamento">Regulamento Interno</a></li>
+                            <li><a href="/privacidade">Politica de Privacidade</a></li>
                         </ul>
 
                     </div><!-- end link-widget -->
